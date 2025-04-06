@@ -1,0 +1,72 @@
+/* Home */
+@use "./../../app/vars";
+
+/* Home screen */
+
+.home-container {
+  height: calc(50vh);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    height: 420px;
+  }
+}
+.image-grid {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  gap: 0.5em;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  figure {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5em;
+    flex-shrink: 0;
+    width: 80vw;
+    height: auto;
+    scroll-snap-align: start;
+
+    cursor: pointer;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  &::-webkit-scrollbar {
+    border-radius: 4px;
+    height: 1.5em;
+  }
+  &::-webkit-scrollbar-track {
+    background: #fff;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 100, 100, 0.42); /* Thumb color */
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Thumb color on hover */
+  }
+
+  @media screen and (min-width: 768px) {
+    display: grid;
+    grid-template-areas:
+      "a a b c"
+      "a a d e";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    overflow: hidden;
+    figure {
+      width: 100%;
+    }
+  }
+}

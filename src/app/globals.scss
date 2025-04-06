@@ -1,0 +1,39 @@
+$w-max: 1232px;
+@use "./vars";
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: var(--font-poppins);
+  transition: 0.25s ease-out;
+}
+
+body {
+  background: rgb(242, 243, 246);
+  position: relative;
+  min-height: 200vh;
+  padding: 1em;
+  padding-top: 6em;
+}
+main {
+  background: transparent;
+}
+section {
+  display: flex;
+  justify-content: center;
+  & > div:first-of-type {
+    max-width: $w-max;
+  }
+}
+.block {
+  background: #fff;
+  border-radius: 0.5em;
+  padding: 2em;
+  width: 100%;
+}
