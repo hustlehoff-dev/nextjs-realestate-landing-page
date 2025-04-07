@@ -1,5 +1,8 @@
 @use "./../../app/vars";
 
+#oferta {
+  height: 100vh;
+}
 .offer-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -10,17 +13,45 @@
   padding-top: 1em;
   gap: 1em;
   width: 100%;
+  height: 100%;
 
+  & > div {
+    height: max-content;
+  }
   @media screen and (min-width: 980px) {
     grid-template-columns: 2fr 1fr;
     display: grid;
   }
+
+  .offer-container {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+  }
 }
 
 .price-offer {
-  order: 0;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  position: sticky;
+  top: 6em;
+  z-index: 10;
+  .offer-heading {
+  }
+  .offer-price {
+    h2 {
+      color: var(--header-bg-color);
+      font-size: 2em;
 
+      span {
+        font-size: 0.65em;
+        font-weight: 400;
+        margin-left: 0.5em;
+      }
+    }
+  }
   .offer-cards {
     display: flex;
     gap: 0.5em;
@@ -37,17 +68,37 @@
       gap: 0.5em;
     }
   }
+  .offer-local {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-weight: 600;
+    color: var(--header-bg-color);
+  }
 }
 
 .contact-wrapper {
-  order: 1;
   position: sticky;
   top: 6em;
   z-index: 10;
+  .contact-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+    margin-bottom: 1em;
+
+    h3 {
+    }
+    span {
+      font-size: 0.9em;
+      color: rgba(50, 50, 50);
+    }
+    p {
+    }
+  }
 }
 
 .offer-description {
-  order: 2;
   .description-heading {
   }
   .description-cards {
@@ -75,6 +126,58 @@
       display: flex;
       gap: 1em;
       border-bottom: 1px solid rgba(100, 100, 100, 0.5);
+    }
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  .form-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    input,
+    textarea {
+      background: rgb(242, 243, 246);
+      border-radius: 4px;
+      outline: 0;
+      border: 0;
+      padding: 1em;
+      width: 80%;
+      font-size: 1em;
+      color: rgba(50, 50, 50);
+    }
+    textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+    label {
+      position: absolute;
+      transform: translateX(0.5em) translateY(0px);
+      color: rgba(50, 50, 50);
+      border-right: 2px solid rgba(0, 0, 0, 0.2);
+      padding-right: 0.25em;
+    }
+  }
+  button {
+    background: rgb(255, 166, 0);
+    border: 0;
+    outline: 0;
+    padding: 1em;
+    max-width: 200px;
+    border-radius: 1em;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 800;
+    letter-spacing: 1px;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+    margin-top: 1em;
+    cursor: pointer;
+    &:hover {
+      background: rgba(255, 166, 0, 0.65);
+      transform: translateY(-2.5px);
     }
   }
 }

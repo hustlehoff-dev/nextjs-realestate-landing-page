@@ -35,48 +35,50 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="contact-form">
       <div className="form-group">
-        <label htmlFor="name">Imię:</label>
         <input
           type="text"
           id="name"
           name="name"
           value={formData.name}
           onChange={handleChange}
+          placeholder="Imię"
           required
         />
       </div>
 
       <div className="form-group">
-        <label htmlFor="email">Email:</label>
         <input
           type="email"
           id="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
+          placeholder="E-mail"
           required
         />
       </div>
 
       <div className="form-group">
-        <label htmlFor="phone">Numer telefonu:</label>
+        <label htmlFor="phone">+48</label>
         <input
           type="tel"
           id="phone"
           name="phone"
+          placeholder="Telefon"
           value={formData.phone}
+          style={{ paddingLeft: "3em" }}
           onChange={handleChange}
           required
         />
       </div>
 
       <div className="form-group">
-        <label htmlFor="message">Wiadomość:</label>
         <textarea
           id="message"
           name="message"
           value={formData.message}
           onChange={handleChange}
+          maxLength={512}
           required
         />
       </div>
